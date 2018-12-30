@@ -12,6 +12,8 @@ dicesize = int(im.width / dicew)
 
 nim = Image.new("L", (im.width, im.height), 'white')
 nimd = ImageDraw.Draw(nim)
+
+#dice.ttf is available at https://www.ambor.com/public/dice/dice.html
 fnt = ImageFont.truetype('/tmp/dice.ttf', size=dicesize)
 
 for y in range(0, im.height-dicesize, dicesize):
