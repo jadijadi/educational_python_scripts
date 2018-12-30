@@ -1,5 +1,10 @@
 from PIL import Image, ImageOps, ImageDraw
 
+def diceImage(dicenumber,dicesize):
+    dim = Image.open("dice/" + str(dicenumber) + ".jpg")
+    dim = dim.resize((dicesize,dicesize), Image.ANTIALIAS)
+    return dim
+
 dicew = 100
 
 im = Image.open("/tmp/image.png")
@@ -22,7 +27,10 @@ for y in range(0, im.height-dicesize, dicesize):
         thisSectorColor = thisSectorColor / (dicesize **2 )
         
         nimd.rectangle(((x, y),(x+dicesize, y+dicesize)), thisSectorColor)
-        diceNumber = (255-thisSectorColor) * 6 / 255 + 1
+        diceNumber = (255-thisSectorColor) * 5 / 255 + 1
         #print (x, y, thisSectorColor, diceNumber)
         print diceNumber,
+        im.paste(diceImage(diceNumber,dicesize), (x,y))
     print
+im.save("diceimage.png")
+im.show()
