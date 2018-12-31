@@ -22,7 +22,17 @@ for y in range(0, im.height-dicesize, dicesize):
         thisSectorColor = thisSectorColor / (dicesize **2 )
         
         nimd.rectangle(((x, y),(x+dicesize, y+dicesize)), thisSectorColor)
-        diceNumber = (255-thisSectorColor) * 6 / 255 + 1
+        diceNumber = (255-thisSectorColor) * 5 / 255 + 1
         #print (x, y, thisSectorColor, diceNumber)
-        print diceNumber,
+         
+        switcher = {
+            1: "⚀",
+            2: "⚁",
+            3: "⚂",
+            4: "⚃",
+            5: "⚄",
+            6: "⚅",
+        }
+        
+        print switcher.get(diceNumber),
     print
