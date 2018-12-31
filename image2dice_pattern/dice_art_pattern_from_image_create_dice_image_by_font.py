@@ -24,7 +24,7 @@ for y in range(0, im.height-dicesize, dicesize):
                 thisSectorColor += im.getpixel((x+dicex, y+dicey))
         thisSectorColor = thisSectorColor / (dicesize **2 )
         
-        diceNumber = str((255-thisSectorColor) * 6 / 255 + 1)
+        diceNumber = str((255-thisSectorColor) * 5 / 255 + 1)
         nimd.text((x, y), diceNumber, fill="black", font=fnt, align="center")
         
         print diceNumber,
